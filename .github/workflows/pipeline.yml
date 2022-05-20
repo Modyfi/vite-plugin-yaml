@@ -5,7 +5,37 @@ on:
   - pull_request
 
 jobs:
-  build:
+  integration-build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        os: [ubuntu-latest]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm i -w
+
+      - name: Build integration
+        run: pnpm example:build
+
+  plugin-build:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -34,6 +64,3 @@ jobs:
 
       - name: Build Vite plugin
         run: pnpm build
-
-      - name: Build integration test
-        run: pnpm example:build
