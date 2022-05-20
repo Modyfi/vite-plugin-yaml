@@ -1,3 +1,5 @@
+[![Pipeline](https://github.com/Modyfi/vite-plugin-yaml/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Modyfi/vite-plugin-yaml/actions/workflows/pipeline.yml)
+
 # 🧹 vite-plugin-yaml
 
 Transforms a YAML file into a JS object.
