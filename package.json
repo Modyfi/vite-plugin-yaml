@@ -13,10 +13,7 @@
     "dev": "tsup --watch src",
     "example:dev": "pnpm -C example run dev",
     "example:build": "pnpm run build && npm -C example run build",
-    "build": "tsup",
-    "test": "vitest",
-    "test:watch": "vitest -w",
-    "coverage": "vitest run --coverage"
+    "build": "tsup"
   },
   "exports": {
     ".": {
@@ -63,7 +60,6 @@
     "c8": "7.11.3",
     "tsup": "5.12.8",
     "typescript": "4.6.4",
-    "vite": "2.9.9",
-    "vitest": "0.12.6"
+    "vite": "2.9.9"
   }
 }
