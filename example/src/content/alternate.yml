@@ -1,0 +1,11 @@
+name: Tony
+id: 4004
+metadata:
+  isActive: true
+  role: human
+interests:
+  - tea
+  - photography
+  - growing hot peppers
+  - generative art
+  - anime
