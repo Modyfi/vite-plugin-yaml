@@ -2,7 +2,6 @@ name: Pipeline
 
 on:
   - push
-  - pull_request
 
 jobs:
   integration-build:
