@@ -5,6 +5,7 @@ import toSource from 'tosource';
 import type { YAMLException, Schema } from 'js-yaml';
 import type { Plugin } from 'vite';
 import type { FilterPattern } from '@rollup/pluginutils';
+import SourceMap from 'js-yaml-source-map';
 
 export type PluginOptions = {
   /**
@@ -54,12 +55,15 @@ export default (
         return null;
       }
 
+      const sourceMap = new SourceMap();
+
       /**
        * Transforms file to JS object with customizable schema and error reporting.
        */
       const yamlData = load(code, {
         filename: id,
         schema: options.schema,
+        listener: sourceMap.listen(),
         onWarning: (warning: YAMLException) =>
           options?.onWarning && typeof options.onWarning === 'function'
             ? options.onWarning(warning)
@@ -68,6 +72,10 @@ export default (
 
       return {
         code: `const data = ${toSource(yamlData)};\nexport default data;`,
+        //
+        // todo get this into the appropriate format
+        //
+        // map: sourceMap,
       };
     }
     return null;

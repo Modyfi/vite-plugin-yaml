@@ -54,6 +54,7 @@
   "dependencies": {
     "@rollup/pluginutils": "4.2.1",
     "js-yaml": "4.1.0",
+    "js-yaml-source-map": "0.2.2",
     "tosource": "2.0.0-alpha.3"
   },
   "devDependencies": {
