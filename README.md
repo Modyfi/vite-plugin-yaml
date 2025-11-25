@@ -1,2 +1,1 @@
-# vite-plugin-yaml
-Figma Bugbounty POC by @nvk0x
+# Figma Bugbounty POC by @nvk0x
